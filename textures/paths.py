@@ -2,8 +2,9 @@ import math
 import random
 import string
 
+from .base import *
 
-class Paths:
+class Paths(BaseTexture):
     def __init__(self):
         self.width = 1
         self.height = 1

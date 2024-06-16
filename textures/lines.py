@@ -1,7 +1,9 @@
 import random
 import string
 
-class Lines:
+from .base import *
+
+class Lines(BaseTexture):
     def __init__(self):
         self.size = 20
         self.stroke = '#343434'
