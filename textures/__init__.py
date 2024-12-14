@@ -2,7 +2,6 @@ from .circles import *
 from .lines   import *
 from .paths   import *
 
-
 class Texture:
     def lines(self, *args):
         return Lines(*args)
