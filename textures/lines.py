@@ -5,16 +5,16 @@ from .base import *
 
 class Lines(BaseTexture):
     def __init__(self):
-        self.size = 20
-        self.stroke = '#343434'
-        self.stroke_width = 2
-        self.background = ''
-        self.id = ''.join(random.choices(string.ascii_lowercase, k=5))
-        self.orientation = ['diagonal']
-        self.shape_rendering = 'auto'
+        self._size = 20
+        self._stroke = '#343434'
+        self._stroke_width = 2
+        self._background = ''
+        self._id = ''.join(random.choices(string.ascii_lowercase, k=5))
+        self._orientation = ['diagonal']
+        self._shape_rendering = 'auto'
 
     def path(self, orientation):
-        s = self.size
+        s = self._size
         if orientation in ['0/8', 'vertical']:
             return f"M {s / 2}, 0 l 0, {s}"
         elif orientation == '1/8':
@@ -48,56 +48,24 @@ class Lines(BaseTexture):
 
     def svg(self):
         svg = []
-        svg.append(f'<pattern id="{self.id}" patternUnits="userSpaceOnUse" width="{self.size}" height="{self.size}">')
+        svg.append(f'<pattern id="{self._id}" patternUnits="userSpaceOnUse" width="{self._size}" height="{self._size}">')
 
         if self.background:
-            svg.append(f'<rect width="{self.size}" height="{self.size}" fill="{self.background}" />')
+            svg.append(f'<rect width="{self._size}" height="{self._size}" fill="{self._background}" />')
 
-        for o in self.orientation:
-            svg.append(f'<path d="{self.path(o)}" stroke="{self.stroke}" stroke-width="{self.stroke_width}" shape-rendering="{self.shape_rendering}" stroke-linecap="square" />')
+        for o in self._orientation:
+            svg.append(f'<path d="{self.path(o)}" stroke="{self._stroke}" stroke-width="{self._stroke_width}" shape-rendering="{self._shape_rendering}" stroke-linecap="square" />')
 
         svg.append('</pattern>')
         return '\n'.join(svg)
 
-    # def heavier(self, factor=2):
-    #     self.stroke_width *= factor
-    #     return self
 
-    # def lighter(self, factor=2):
-    #     self.stroke_width /= factor
-    #     return self
-
-    # def thinner(self, factor=2):
-    #     self.size *= factor
-    #     return self
-
-    # def thicker(self, factor=2):
-    #     self.size /= factor
-    #     return self
-
-    def set_orientation(self, *args):
+    def orientation(self, *args):
         if not args:
             return self
-        self.orientation = args
+        self._orientation = args
         return self
 
-    def set_shape_rendering(self, value):
+    def shape_rendering(self, value):
         self.shape_rendering = value
         return self
-
-    # def set_stroke(self, color):
-    #     self.stroke = color
-    #     return self
-
-    # def set_stroke_width(self, width):
-    #     self.stroke_width = width
-    #     return self
-
-    # def set_id(self, value=None):
-    #     if value is None:
-    #         return self.id
-    #     self.id = value
-    #     return self
-
-    # def url(self):
-    #     return f"url(#{self.id})"
