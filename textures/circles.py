@@ -29,15 +29,15 @@ class Circles(BaseTexture):
         return '\n'.join(svg)
 
 
-    def set_complement(self, value=True):
+    def complement(self, value=True):
         self.complement = value
         return self
 
-    def set_radius(self, radius):
+    def radius(self, radius):
         self.radius = radius
         return self
 
-    def set_fill(self, color):
+    def fill(self, color):
         self.fill = color
         return self
 
@@ -59,15 +59,15 @@ class Circles(BaseTexture):
     #     self.size /= factor
     #     return self
     
-    # def set_stroke(self, color):
+    # def stroke(self, color):
     #     self.stroke = color
     #     return self
 
-    # def set_stroke_width(self, width):
+    # def stroke_width(self, width):
     #     self.stroke_width = width
     #     return self
 
-    # def set_id(self, value=None):
+    # def id(self, value=None):
     #     if value is None:
     #         return self.id
     #     self.id = value
