@@ -63,15 +63,15 @@ class Paths(BaseTexture):
         return '\n'.join(svg)
 
 
-    def set_shape_rendering(self, value):
+    def shape_rendering(self, value):
         self.shape_rendering = value
         return self
 
-    def set_d(self, d_func):
+    def d(self, d_func):
         self.d = d_func
         return self
 
-    def set_fill(self, color):
+    def fill(self, color):
         self.fill = color
         return self
 
