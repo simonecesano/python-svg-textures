@@ -11,10 +11,11 @@ class BaseTexture:
     def background(self, color):
         self._background = color
         return self
-
+    
     def size(self, size):
         self._size = size
         return self
+
     def stroke(self, color):
         self._stroke = color
         return self
