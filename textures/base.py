@@ -1,6 +1,10 @@
 import random
 import string
 
+# ----------------------------------------------------
+# last version before move to chainable approach
+# ----------------------------------------------------
+
 class BaseTexture:
     def random_id(self):
         return ''.join(random.choices(string.ascii_lowercase, k=5))
